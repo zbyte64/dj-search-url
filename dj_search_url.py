@@ -10,6 +10,7 @@ except ImportError:
 
 # Register database schemes in URLs.
 urlparse.uses_netloc.append("elasticsearch")
+urlparse.uses_netloc.append("elasticsearch2")
 urlparse.uses_netloc.append("solr")
 urlparse.uses_netloc.append("whoosh")
 urlparse.uses_netloc.append("simple")
@@ -19,13 +20,14 @@ DEFAULT_ENV = "SEARCH_URL"
 
 SCHEMES = {
     "elasticsearch": "haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine",
+    "elasticsearch2": "haystack.backends.elasticsearch_backend2.Elasticsearch2SearchEngine",
     "solr": "haystack.backends.solr_backend.SolrEngine",
     "whoosh": "haystack.backends.whoosh_backend.WhooshEngine",
     "simple": "haystack.backends.simple_backend.SimpleEngine",
 }
 
 USES_URL = ["solr"]
-USES_INDEX = ["elasticsearch"]
+USES_INDEX = ["elasticsearch", "elasticsearch2"]
 USES_PATH = ["whoosh"]
 
 
